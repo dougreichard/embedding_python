@@ -1,0 +1,58 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "delay",
+            "type": "shell",
+            "command": "ping 127.0.0.1 -n 2"
+        },
+        {
+            "label": "pyset",
+            "type": "shell",
+            "command": "go.bat"
+        },
+        {
+            "label": "msvc build",
+            "type": "shell",
+            "command": "cl.exe",
+            "args": [
+                "/std:c++17",
+                "/I",
+                "${workspaceFolder}\\python37\\include",
+                "/I",
+                "${workspaceFolder}\\pybind11\\include",
+                "/EHsc",
+               // "/Zi",
+                "/Fo:",
+                "out\\main11.obj",
+                "/Fd:",
+                "out\\",
+                "/Fe:",
+                "main11.exe",
+                "main11.cpp",
+                "/link /LIBPATH:${workspaceFolder}\\python37\\libs /OUT:out\\main11.exe"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "always"
+            },
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "type": "shell",
+            "label": "cl.exe build active file",
+            "command": "cl.exe",
+            "args": [
+                "/Zi",
+                "/EHsc",
+                "/Fe:",
+                "${fileDirname}\\${fileBasenameNoExtension}.exe",
+                "${file}"
+            ]
+        },
+        
+    ]
+}

@@ -1,0 +1,43 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+
+        {
+            "name": "EXE",
+            "type": "cppvsdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/out/main11.exe",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "externalConsole": false
+        },
+        {
+            "name": "EXE w/py",
+            "type": "cppvsdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/out/main11.exe",
+            "args": ["r"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false
+        },
+        {
+            "name": "Python attach",
+            "type": "python",
+            "request": "attach",
+            "preLaunchTask": "delay",
+            "port": 5678
+        }
+    ],
+	"compounds": [
+		{
+			"name": "Debug Cpp and Python",
+            "configurations": ["EXE w/py", "Python attach"],
+		}
+	]
+}
